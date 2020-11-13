@@ -6,10 +6,25 @@
     <title>Blb</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/app.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
 
 </head>
 <body>
-<div class="app">App</div>
+<div class="app">
+    <div class="app_header">
+        <input type="text" class="app_input" value="Item name" id="inputName">
+        <button class="app_button"><span class='app_button_name'>Add</span></button>
+    </div>
+    <div class="app_body">
+        <div class="app_body_entry">
+            <input class="app_body_entry_checkbox" type="checkbox" name="jsentryid1" id="jsentryid1">
+            <label for="jsentryid1"><span class="app_body_entry_name">Item name</span></label>
+        </div>
+
+    </div>
+</div>
+
 
 <script src='script.js' ></script>  
 </body>
