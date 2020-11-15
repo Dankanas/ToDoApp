@@ -3,12 +3,12 @@ const itemArray = [];
 const checkTest = [];
 
 const addItem = () => {  // Imetu nauja list item + priskiriu jam false verte (ale tipo unchecked)
-    let inputItem = document.getElementById('inputName').value; 
+    let inputItem = document.getElementById('inputName'); 
     checkTester(); // <- patikrinu pries tai buvusius list itemu checkboxus
-    itemArray.push(inputItem);
+    itemArray.push(inputItem.value);
     checkTest.push(false);
     putElement();
-    inputItem = "" ;
+    inputItem.value = "" ;
     
      // <
 }
