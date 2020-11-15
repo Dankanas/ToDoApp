@@ -8,6 +8,7 @@ const addItem = () => {  // Imetu nauja list item + priskiriu jam false verte (a
     itemArray.push(inputItem);
     checkTest.push(false);
     putElement();
+    inputItem = "" ;
     
      // <
 }
