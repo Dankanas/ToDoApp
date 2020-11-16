@@ -12,7 +12,6 @@ const addItem = () => {
   putElement();
   inputItem.value = "";
   window.localStorage.setItem("Sarasas", JSON.stringify(itemArray));
-  // <
 };
 
 const checkboxChecker = () => {
@@ -79,7 +78,7 @@ const loadList = () => {
 
 const inputItem2 = document.getElementById("inputName"); // Click 'Add' button with Enter
 inputItem2.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
+  if (event.code === 'Enter') {
     // 13 - Enter 'key'
     event.preventDefault();
     document.getElementById("addButton").click();
