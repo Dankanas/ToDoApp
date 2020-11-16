@@ -12,7 +12,6 @@ const addItem = () => {
   putElement();
   inputItem.value = "";
   window.localStorage.setItem("Sarasas", JSON.stringify(itemArray));
-  // <
 };
 
 const checkboxChecker = () => {
@@ -33,6 +32,10 @@ const entryNameChecker = () => {
   });
 };
 
+const editItem = (event) => {
+  console.log(event.target.value);
+}
+
 const createElement = (idname, index, checked) => {
   // <- Sukuria HTML elementa
   return `<label for="checkbox${index}">
@@ -40,7 +43,7 @@ const createElement = (idname, index, checked) => {
         <div class="app_body_entry">
             <input type="checkbox" class="app_body_entry_checkbox" id="checkbox${index}" ${checked}>
             <div class="newCheckbox"></div>
-            <input type="text" class="app_body_entry_name" value="${idname}" id="app_body_entry_name${index}">
+            <input onkeyup="editItem(event)" type="text" class="app_body_entry_name" value="${idname}" id="app_body_entry_name${index}">
             <button class="app_body_entry_delete" id="delete${index}" onclick="deleteElement(${index})"></button>
         </div>
     </div></label>`;
@@ -79,7 +82,7 @@ const loadList = () => {
 
 const inputItem2 = document.getElementById("inputName"); // Click 'Add' button with Enter
 inputItem2.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
+  if (event.code === 'Enter') {
     // 13 - Enter 'key'
     event.preventDefault();
     document.getElementById("addButton").click();
