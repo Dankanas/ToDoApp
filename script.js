@@ -11,6 +11,7 @@ const addItem = () => {  // <- 'Add' button funkcija
     });
     putElement();
     inputItem.value = "" ;
+    window.localStorage.setItem("Sarasas", JSON.stringify(itemArray));
     
      // <
 }
@@ -60,6 +61,14 @@ function deleteElement(param) { // 'Delete' button funkcija. Istrina eilute ir a
     checkboxChecker();
     itemArray.splice(param, 1);
     putElement();
+    window.localStorage.setItem("Sarasas", JSON.stringify(itemArray));
+}
+
+const loadList = () => { // Uzkrauna objekta is local storage
+    const stringifiedObject = window.localStorage.getItem("Sarasas");
+    const loadedObjectArray = (JSON.parse(stringifiedObject));
+    loadedObjectArray.forEach(x => {itemArray.push(x)});
+    putElement();
 }
 
 const inputItem2 = document.getElementById("inputName"); // Click 'Add' button with Enter
@@ -69,3 +78,5 @@ inputItem2.addEventListener("keyup", function(event) {
     document.getElementById("addButton").click();
   }
 });
+
+loadList();
