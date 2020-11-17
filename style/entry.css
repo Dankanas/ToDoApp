@@ -1,8 +1,12 @@
-.app_body_entry_outside {
+.entry {
   padding: 0 24px;
 }
 
-.app_body_entry {
+.entry:hover {
+  background: #28a7e01a;
+}
+
+.entry_body {
   width: 100%;
   height: 63px;
   border-bottom-style: solid;
@@ -10,22 +14,21 @@
   border-bottom-color: #e8e8e8;
   padding: 20px 24px 20px 24px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.app_body_entry_outside:hover {
-  background: #28a7e01a;
-}
 
-.app_body_entry_checkbox {
-  position: absolute;
+
+.entry_checkbox--default {
   opacity: 1;
   cursor: pointer;
   height: 0;
   width: 0;
+  position: absolute;
 }
 
-.newCheckbox {
+.entry_checkbox{
   height: 22px;
   width: 22px;
   border-radius: 50%;
@@ -35,36 +38,38 @@
   border-color: #464646;
 }
 
-.app_body_entry_checkbox:checked ~ .newCheckbox {
+.entry_checkbox--default:checked ~ .entry_checkbox {
   background-image: url("../assets/tick.svg");
   background-repeat: no-repeat;
   background-position: 40% 55%;
   background-size: 80%;
 }
 
-.app_body_entry_name {
-  margin-left: 42px;
-  max-width: 100%;
+.entry_checkbox--default:checked ~ .entry_name {
+  text-decoration: line-through;
+}
+
+.entry_name {
+  margin-left: 18px;
+  width: 100%;
   color: #2e2e2e;
-  position: absolute;
   outline: none;
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
 }
 
-.app_body_entry_checkbox:checked ~ .app_body_entry_name {
-  text-decoration: line-through;
-}
 
-.app_body_entry_delete {
+
+.entry_delete {
   background-image: url('../assets/trash-can.svg');
   height: 18px;
   width: 14px;
-  float: right;
   outline: none;
   border-style: none;
+  justify-self: flex-end;
+  
 }
 
-.app_body_entry_delete:hover {
+.entry_delete:hover {
   cursor: pointer;
 }
