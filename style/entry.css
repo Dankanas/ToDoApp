@@ -14,17 +14,18 @@
   border-bottom-color: #e8e8e8;
   padding: 20px 24px 20px 24px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 
 
 .entry_checkbox--default {
-  position: absolute;
   opacity: 1;
   cursor: pointer;
   height: 0;
   width: 0;
+  position: absolute;
 }
 
 .entry_checkbox{
@@ -49,10 +50,9 @@
 }
 
 .entry_name {
-  margin-left: 42px;
-  max-width: 100%;
+  margin-left: 18px;
+  width: 100%;
   color: #2e2e2e;
-  position: absolute;
   outline: none;
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
@@ -64,9 +64,10 @@
   background-image: url('../assets/trash-can.svg');
   height: 18px;
   width: 14px;
-  float: right;
   outline: none;
   border-style: none;
+  justify-self: flex-end;
+  
 }
 
 .entry_delete:hover {

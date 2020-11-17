@@ -28,23 +28,30 @@ const checkboxChecker = () => {
 const entryNameChecker = () => {
   // <- Pasiema saraso input vertes.
   itemArray.forEach((x, i) => {
-    x.itemName = document.getElementById(`app_body_entry_name${i}`).value;
+    x.itemName = document.getElementById(`entry_name${i}`).value;
+    
   });
 };
 
-const editItem = (event) => {
-  console.log(event.target.value);
+const editItem = (event, index) => {
+  itemArray[index].itemName = event.target.value;  
+  window.localStorage.setItem("Sarasas", JSON.stringify(itemArray));
+}
+
+const editCheckbox = (index) => {
+    itemArray[index].itemValue = !itemArray[index].itemValue;
+    window.localStorage.setItem("Sarasas", JSON.stringify(itemArray));
 }
 
 const createElement = (idname, index, checked) => {
   // <- Sukuria HTML elementa
   return `<label for="checkbox${index}">
-    <div class="app_body_entry_outside">
-        <div class="app_body_entry">
-            <input type="checkbox" class="app_body_entry_checkbox" id="checkbox${index}" ${checked}>
-            <div class="newCheckbox"></div>
-            <input onkeyup="editItem(event)" type="text" class="app_body_entry_name" value="${idname}" id="app_body_entry_name${index}">
-            <button class="app_body_entry_delete" id="delete${index}" onclick="deleteElement(${index})"></button>
+    <div class="entry">
+        <div class="entry_body">
+            <input type="checkbox" onclick=editCheckbox(${index}) class="entry_checkbox--default" id="checkbox${index}" ${checked}>
+            <div class="entry_checkbox"></div>
+            <input onkeyup="editItem(event, ${index})" type="text" class="entry_name" value="${idname}" id="entry_name${index}">
+            <button class="entry_delete" id="delete${index}" onclick="deleteElement(${index})"></button>
         </div>
     </div></label>`;
 };
